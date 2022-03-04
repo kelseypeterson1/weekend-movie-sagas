@@ -9,7 +9,7 @@ function MovieList() {
     const dispatch = useDispatch();
     const movies = useSelector(store => store.movies);
 
-    //retrieve movies from reducer on page load
+    //retrieve movies from db on page load
     useEffect(() => {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);

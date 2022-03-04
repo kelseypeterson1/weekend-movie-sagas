@@ -1,21 +1,29 @@
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 
 export default function MovieDetails() {
 
-    const {id} = useParams(); 
+    const { id } = useParams();
     const movies = useSelector(store => store.movies);
-    const movie = movies[id]
+    const genres = useSelector(store => store.genres);
+    const movie = movies[id];
+    const dispatch = useDispatch();
+
+    //retrieve genres from db on page load
+    useEffect(() => {
+        dispatch({ type: 'FETCH_GENRES' });
+    }, []);
 
     console.log('movie is:', movie)
-    console.log('movies are:', movies)
+    console.log('genres are:', genres)
 
 
     return (
         <>
             <h2>{movie.title}</h2>
-            <img src={movie.poster}/>
+            <img src={movie.poster} />
             <h4>{movie.description}</h4>
         </>
     )
