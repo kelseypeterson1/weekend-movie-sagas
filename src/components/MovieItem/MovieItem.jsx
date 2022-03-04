@@ -3,10 +3,14 @@ import { useHistory } from 'react-router-dom';
 function MovieItem({ movie }) {
 
     const history = useHistory();
+    // since arrays start at position 0,
+    // the id in the DB is one off from the array placement
+    // this fixes that
+    const movieDetailRoute = movie.id - 1;
 
     // routes to details when picture is clicked
     const handleClick = () => {
-        history.push(`/details/:${movie.id}`);
+        history.push(`/details/${movieDetailRoute}`);
     }
 
     return (

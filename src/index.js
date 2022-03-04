@@ -14,11 +14,13 @@ import axios from 'axios';
 import movies from './reducers/movies.reducer'
 import genres from './reducers/genres.reducer'
 // Import sagas
-import fetchAllMovies from './sagas/fetchAllMovies.saga'
+import fetchMovies from './sagas/fetchMovies.saga'
+import fetchGenres from './sagas/fetchGenres.saga'
 
 // Create the rootSaga generator function
 function* rootSaga() {
-    yield takeEvery('FETCH_MOVIES', fetchAllMovies);
+    yield takeEvery('FETCH_MOVIES', fetchMovies);
+    yield takeEvery('FETCH_GENRES', fetchGenres)
 }
 
 // Create sagaMiddleware
