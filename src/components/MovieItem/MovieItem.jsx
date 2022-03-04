@@ -3,9 +3,9 @@ import { useHistory } from 'react-router-dom';
 function MovieItem({ movie }) {
 
     const history = useHistory();
-    const handleClick = () => {
 
-        // console.log('event is', event)
+    // routes to details when picture is clicked
+    const handleClick = () => {
         history.push(`/details/:${movie.id}`);
     }
 
