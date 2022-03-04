@@ -15,7 +15,8 @@ export default function MovieDetails() {
     return (
         <>
             <h2>{movie.title}</h2>
-            Details for {id} movie
+            <img src={movie.poster}/>
+            <h4>{movie.description}</h4>
         </>
     )
 }
