@@ -6,7 +6,7 @@ function MovieItem({ movie }) {
 
     // routes to details when picture is clicked
     const handleClick = () => {
-        history.push(`/details/:${movie.id}`);
+        history.push(`/details/${movie.id}`);
     }
 
     return (
