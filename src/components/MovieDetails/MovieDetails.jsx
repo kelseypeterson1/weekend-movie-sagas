@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
 import { useHistory } from 'react-router-dom';
 
+
 export default function MovieDetails() {
         
     const history = useHistory();

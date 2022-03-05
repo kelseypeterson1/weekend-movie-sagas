@@ -16,6 +16,19 @@ import genres from './reducers/genres.reducer'
 // Import sagas
 import fetchMovies from './sagas/fetchMovies.saga'
 import fetchGenres from './sagas/fetchGenres.saga'
+// Import MUI
+import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+
+const theme = createMuiTheme({
+    palette: {
+        primary: {
+            main: "#ff8f00"
+        },
+        secondary: {
+            main: "#ffcc80"
+        }
+    }
+});
 
 // Create the rootSaga generator function
 function* rootSaga() {
@@ -41,9 +54,11 @@ sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
     <React.StrictMode>
-        <Provider store={storeInstance}>
-        <App />
-        </Provider>
+        <ThemeProvider theme={theme}>
+            <Provider store={storeInstance}>
+                <App />
+            </Provider>
+        </ThemeProvider>
     </React.StrictMode>,
     document.getElementById('root')
 );
