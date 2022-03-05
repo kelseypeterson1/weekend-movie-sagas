@@ -23,8 +23,8 @@ export default function MovieDetails() {
             <img src={movie.poster} />
 
             <h2>Genres</h2>
-            {genres.map(genre => (
-                <p>{genre.name}</p>
+            {genres.map((genre, i) => (
+                <p key={i}>{genre.name}</p>
             ))}
 
             <h4>{movie.description}</h4>
