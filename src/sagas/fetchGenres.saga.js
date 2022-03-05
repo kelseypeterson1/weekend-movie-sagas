@@ -15,5 +15,4 @@ function* fetchGenres(action) {
     
 }
 
-
 export default fetchGenres;
