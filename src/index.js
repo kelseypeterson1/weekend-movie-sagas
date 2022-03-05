@@ -18,6 +18,12 @@ import fetchMovies from './sagas/fetchMovies.saga'
 import fetchGenres from './sagas/fetchGenres.saga'
 // Import MUI
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+// Import components directory
+export {default as App} from './components/App/App'
+export {default as MovieDetails} from './components/MovieDetails/MovieDetails'
+export {default as MovieItem} from './components/MovieItem/MovieItem'
+export {default as MovieList} from './components/MovieList/MovieList'
+export {default as MovieForm} from './components/MovieForm/MovieForm'
 
 const theme = createMuiTheme({
     palette: {
