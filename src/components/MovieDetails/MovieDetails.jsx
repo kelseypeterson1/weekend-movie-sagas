@@ -13,17 +13,20 @@ export default function MovieDetails() {
 
     //retrieve genres from db on page load
     useEffect(() => {
-        dispatch({ type: 'FETCH_GENRES' });
+        dispatch({ type: 'FETCH_GENRES', payload: movie });
     }, []);
-
-    console.log('movie is:', movie)
-    console.log('genres are:', genres)
-
 
     return (
         <>
             <h2>{movie.title}</h2>
+
             <img src={movie.poster} />
+
+            <h2>Genres</h2>
+            {genres.map(genre => (
+                <p>{genre.name}</p>
+            ))}
+
             <h4>{movie.description}</h4>
         </>
     )
