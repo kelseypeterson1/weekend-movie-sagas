@@ -1,17 +1,18 @@
 import { put } from 'redux-saga/effects';
 import axios from 'axios';
 
-function* fetchGenres() {
-    // get all genres from the DB
-    try {
-        const genres = yield axios.get('/api/genre');
-        console.log('get all:', genres.data);
+
+function* fetchGenres(action) {
+    // get genres for specific movie
+    try { 
+        console.log('movie id sent is:', action.payload)
+        const genres = yield axios.get(`/api/genre/${action.payload.id}`);
         yield put({ type: 'SET_GENRES', payload: genres.data });
 
-    } catch {
-        console.log('get all error');
+    } catch (err) {
+        console.log('POST error is', err);
     }
-        
+    
 }
 
 export default fetchGenres;
