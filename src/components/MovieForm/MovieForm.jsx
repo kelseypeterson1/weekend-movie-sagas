@@ -51,31 +51,48 @@ export default function MovieForm() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        for (let row of checkedGenres) {
-            dispatch({
-                type: "ADD_MOVIE",
-                payload:
-                {
-                    title: title,
-                    poster: poster,
-                    description: description,
-                    genre_id: row
-                }
-            })
+        // alert user if more than one genre was selected
+        if (checkedGenres.length > 1) {
+            alert('only one genre allowed')
+
+            // alert user if no genres were selected
+        } else if (checkedGenres.length > 1) {
+            alert('must select a genre')
         }
 
+        // else post new movie to the database
+        else {
+            for (let row of checkedGenres) {
+                dispatch({
+                    type: "ADD_MOVIE",
+                    payload:
+                    {
+                        title: title,
+                        poster: poster,
+                        description: description,
+                        genre_id: row
+                    }
+                })
+            }
+
+            // routes to the movie list page
+            history.push('/');
+        }
+    }
+
+    const handleBack = () => {
         // routes to the movie list page
         history.push('/');
     }
 
     return (
-        <Box
-            sx={{
-                display: 'flex',
-                justifyContent: 'center'
-            }}
-        >
-            <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
+            <Box
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'center'
+                }}
+            >
                 <Card sx={{ maxWidth: 345 }}>
                     <CardMedia
                         component="img"
@@ -85,6 +102,7 @@ export default function MovieForm() {
                     <CardContent>
                         <TextField
                             id="title"
+                            required
                             label="Title"
                             variant="standard"
                             value={title}
@@ -92,6 +110,7 @@ export default function MovieForm() {
                         />
                         <TextField
                             id="poster"
+                            required
                             label="Poster"
                             variant="standard"
                             value={poster}
@@ -99,6 +118,7 @@ export default function MovieForm() {
                         />
                         <TextField
                             id="description"
+                            required
                             label="Description"
                             multiline
                             maxRows={4}
@@ -122,9 +142,10 @@ export default function MovieForm() {
                     </CardContent>
                     <CardActions>
                         <Button size="small" type="submit">Submit</Button>
+                        <Button size="small" onClick={handleBack}>Back</Button>
                     </CardActions>
                 </Card>
-            </form>
-        </Box>
+            </Box>
+        </form>
     )
 }
