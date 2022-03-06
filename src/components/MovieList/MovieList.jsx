@@ -18,17 +18,15 @@ function MovieList() {
 
     return (
         <>
-            <h1>MovieList</h1>
-            <Box sx={{
-                margin: 5,
-                backgroundColor: 'secondary.light'
-                
-            }}>
-                <Grid 
-                container 
-                spacing={2}
-                justifyContent="center"
-                alignItems="center"
+            <Box
+                sx={{ padding: 5, marginLeft: 5, marginRight: 5 }}
+                style={{ background: '#c7dbe6' }}
+            >
+                <Grid
+                    container
+                    spacing={2}
+                    justifyContent="center"
+                    alignItems="center"
                 >
                     {movies.map(movie => (
                         <MovieItem
