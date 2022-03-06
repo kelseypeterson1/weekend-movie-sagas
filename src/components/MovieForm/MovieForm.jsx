@@ -14,6 +14,7 @@ import FormHelperText from '@mui/material/FormHelperText';
 import { GenreSlider } from '../../index.js'
 import { makeStyles } from '@mui/styles';
 
+
 export default function MovieForm() {
 
     const genres = useSelector(store => store.allGenres);
