@@ -13,14 +13,40 @@ import axios from 'axios';
 // Import reducers
 import movies from './reducers/movies.reducer'
 import genres from './reducers/genres.reducer'
+import allGenres from './reducers/allGenres.reducer'
+import selectedGenres from './reducers/selectedGenres.reducer'
 // Import sagas
 import fetchMovies from './sagas/fetchMovies.saga'
 import fetchGenres from './sagas/fetchGenres.saga'
+import addMovie from './sagas/addMovie.saga'
+import fetchAllGenres from './sagas/fetchAllGenres.saga'
+// Import MUI
+import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+// Import components directory
+export {default as App} from './components/App/App'
+export {default as MovieDetails} from './components/MovieDetails/MovieDetails'
+export {default as MovieItem} from './components/MovieItem/MovieItem'
+export {default as MovieList} from './components/MovieList/MovieList'
+export {default as MovieForm} from './components/MovieForm/MovieForm'
+export {default as GenreSlider} from './components/GenreSlider/GenreSlider'
+
+const theme = createMuiTheme({
+    palette: {
+        primary: {
+            main: "#ff8f00"
+        },
+        secondary: {
+            main: "#ffcc80"
+        }
+    }
+});
 
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchMovies);
-    yield takeEvery('FETCH_GENRES', fetchGenres)
+    yield takeEvery('FETCH_GENRES', fetchGenres);
+    yield takeEvery('FETCH_ALL_GENRES', fetchAllGenres);
+    yield takeEvery('ADD_MOVIE', addMovie);
 }
 
 // Create sagaMiddleware
@@ -31,6 +57,8 @@ const storeInstance = createStore(
     combineReducers({
         movies,
         genres,
+        allGenres,
+        selectedGenres
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
@@ -41,9 +69,11 @@ sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
     <React.StrictMode>
-        <Provider store={storeInstance}>
-        <App />
-        </Provider>
+        <ThemeProvider theme={theme}>
+            <Provider store={storeInstance}>
+                <App />
+            </Provider>
+        </ThemeProvider>
     </React.StrictMode>,
     document.getElementById('root')
 );

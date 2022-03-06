@@ -1,7 +1,7 @@
 import { put } from 'redux-saga/effects';
 import axios from 'axios';
 
-function* fetchMovies() {
+export default function* fetchMovies() {
     // get all movies from the DB
     try {
         const movies = yield axios.get('/api/movie');
@@ -13,5 +13,3 @@ function* fetchMovies() {
     }
         
 }
-
-export default fetchMovies;

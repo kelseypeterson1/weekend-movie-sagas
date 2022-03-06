@@ -1,4 +1,4 @@
-// Used to store the movie genres
+// Used to store movie genres for a specific movie
 const genres = (state = [], action) => {
     switch (action.type) {
         case 'SET_GENRES':
