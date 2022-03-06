@@ -18,8 +18,8 @@ import Switch from '@mui/material/Switch';
 import { GenreSlider } from '../../index.js'
 
 export default function MovieForm() {
-    
-    const genres = useSelector(store => store.genres);
+
+    const genres = useSelector(store => store.allGenres);
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -122,9 +122,14 @@ export default function MovieForm() {
 
 
                         {/* Genre selection */}
+                                {genres.map(genre => (
+                                    <GenreSlider
+                                        key={genre.id}
+                                        genre={genre}
+                                    />
+                                ))}
                         <FormControl component="fieldset" variant="standard">
                             <FormGroup>
-                                <GenreSlider />
                                 {/* <FormControlLabel
                                     control={
                                         <Switch checked={state.action} onChange={handleChange} name="action" />

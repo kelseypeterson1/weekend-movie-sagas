@@ -1,7 +1,8 @@
-export default function genreSlider() {
+export default function GenreSlider({genre}) {
     return (
-        <>
-        </>
+        <p>
+            genre!
+        </p>
 
         // <FormControlLabel
         //     control={
