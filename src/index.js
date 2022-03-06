@@ -14,6 +14,7 @@ import axios from 'axios';
 import movies from './reducers/movies.reducer'
 import genres from './reducers/genres.reducer'
 import allGenres from './reducers/allGenres.reducer'
+import selectedGenres from './reducers/selectedGenres.reducer'
 // Import sagas
 import fetchMovies from './sagas/fetchMovies.saga'
 import fetchGenres from './sagas/fetchGenres.saga'
@@ -57,6 +58,7 @@ const storeInstance = createStore(
         movies,
         genres,
         allGenres,
+        selectedGenres
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),

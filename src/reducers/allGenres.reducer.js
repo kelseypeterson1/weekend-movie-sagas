@@ -1,5 +1,5 @@
 // Used to store all movie genres
-const genres = (state = [], action) => {
+const allGenres = (state = [], action) => {
     switch (action.type) {
         case 'SET_ALL_GENRES':
             return action.payload;
@@ -8,4 +8,4 @@ const genres = (state = [], action) => {
     }
 }
 
-export default genres;
+export default allGenres;

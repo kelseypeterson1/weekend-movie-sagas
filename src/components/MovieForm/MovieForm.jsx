@@ -57,6 +57,10 @@ export default function MovieForm() {
     //retrieve movies from db on page load
     useEffect(() => {
         dispatch({ type: 'FETCH_ALL_GENRES' });
+        dispatch({ 
+            type: 'SELECT_GENRE',
+            payload: ['adventure', true]
+        })
     }, []);
 
     // submit button posts to DB
@@ -217,8 +221,8 @@ export default function MovieForm() {
                                     }
                                     label="Superhero"
                                 /> */}
+                        <FormHelperText>*Must select a genre</FormHelperText>
                         </FormGroup>
-                        <FormHelperText>*Must select one</FormHelperText>
                         {/* </FormControl> */}
                         {/* End Genre Selection */}
 
