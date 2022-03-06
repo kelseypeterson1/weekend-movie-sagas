@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <Link to='/form'>Movie Form</Link>
       
-      <h1>The Movies Saga!</h1>
+
         <Route path="/" exact>
           <MovieList />
         </Route>

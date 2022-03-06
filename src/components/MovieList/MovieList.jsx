@@ -18,6 +18,7 @@ function MovieList() {
 
     return (
         <>
+            <h1>The Great Movie Directory</h1>
             <Box
                 sx={{ padding: 5, marginLeft: 5, marginRight: 5 }}
                 style={{ background: '#c7dbe6' }}
