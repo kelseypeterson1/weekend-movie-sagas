@@ -1,14 +1,16 @@
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom';
 import './App.css';
-import { MovieList, MovieDetails, MovieForm } from '../../index.js'
+import { MovieList, MovieDetails, MovieForm, NavBar } from '../../index.js'
+import * as React from 'react';
 
 function App() {
+
   return (
-      <Router>
-    <div className="App">
-      <Link to='/form'>Movie Form</Link>
-      
-      <h1>The Movies Saga!</h1>
+    <Router>
+      <NavBar />
+
+      <div className="App">
+
         <Route path="/" exact>
           <MovieList />
         </Route>
@@ -22,8 +24,8 @@ function App() {
         </Route>
 
 
-    </div>
-      </Router>
+      </div>
+    </Router>
   );
 }
 

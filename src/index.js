@@ -29,6 +29,7 @@ export {default as MovieItem} from './components/MovieItem/MovieItem'
 export {default as MovieList} from './components/MovieList/MovieList'
 export {default as MovieForm} from './components/MovieForm/MovieForm'
 export {default as GenreSlider} from './components/GenreSlider/GenreSlider'
+export {default as NavBar} from './components/NavBar/NavBar'
 
 const theme = createMuiTheme({
     palette: {

@@ -14,6 +14,7 @@ import FormHelperText from '@mui/material/FormHelperText';
 import { GenreSlider } from '../../index.js'
 import { makeStyles } from '@mui/styles';
 
+
 export default function MovieForm() {
 
     const genres = useSelector(store => store.allGenres);
@@ -94,9 +95,10 @@ export default function MovieForm() {
                 }}
             >
                 <Card sx={{ maxWidth: 345 }}>
+                    <h1>New Movie Form</h1>
                     <CardMedia
                         component="img"
-                        image="https://m.media-amazon.com/images/I/71BPuv+iRbL._AC_SL1000_.jpg"
+                        image="https://canary.contestimg.wish.com/api/webimage/5f9140c93f7aaa024b420b10-large.jpg?cache_buster=39f079be7dd4b4cfa24776e0def6687a"
                         alt="movie poster"
                     />
                     <CardContent>
