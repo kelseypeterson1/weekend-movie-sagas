@@ -27,3 +27,22 @@ router.get('/:id', (req, res) => {
 }); // end GET route
 
 module.exports = router;
+
+// GET route
+router.get('/', (req, res) => {
+  console.log('Looking for movie genres');
+
+  let query = 
+  `SELECT * FROM "genres";`;
+
+  pool.query(query)
+    .then(result => {
+      res.send(result.rows)
+    })
+    .catch(error => {
+      console.log(`Error getting all genres`, error);
+      res.sendStatus(500);
+    });
+}); // end GET route
+
+module.exports = router;
