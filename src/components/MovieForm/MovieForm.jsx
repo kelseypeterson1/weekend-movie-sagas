@@ -9,12 +9,8 @@ import { useState } from 'react';
 import Button from '@mui/material/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import FormLabel from '@mui/material/FormLabel';
-import FormControl from '@mui/material/FormControl';
 import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import FormHelperText from '@mui/material/FormHelperText';
-import Switch from '@mui/material/Switch';
 import { GenreSlider } from '../../index.js'
 import { makeStyles } from '@mui/styles';
 
@@ -45,21 +41,15 @@ export default function MovieForm() {
         dispatch({ type: 'FETCH_ALL_GENRES' });
     }, []);
 
-    // pulling selected genres from form
-
-    // function getTrueGenres(object, value) {   return Object.keys(selectedGenres).filter(key => selectedGenres[key] === value); }
+    // returning an array of genre_ids with checked boxes
     function getTrueGenres(selectedGenres, boolean) {
         return Object.keys(selectedGenres).filter(key => selectedGenres[key] === boolean);
     }
-
     const checkedGenres = getTrueGenres(selectedGenres, true);
 
     // submit button posts to DB
     const handleSubmit = (event) => {
         event.preventDefault();
-
-        console.log(getTrueGenres(selectedGenres, true));
-        console.log('checkedGenres are', checkedGenres)
 
         for (let row of checkedGenres) {
             dispatch({
@@ -118,8 +108,6 @@ export default function MovieForm() {
                         />
 
                         {/* Genre selection */}
-
-                        {/* <FormControl component="fieldset" variant="standard"> */}
                         <FormGroup className={classes.formGroup}>
                             {genres.map(genre => (
                                 <GenreSlider
@@ -127,89 +115,9 @@ export default function MovieForm() {
                                     genre={genre}
                                 />
                             ))}
-                            {/* <FormControlLabel
-                                    control={
-                                        <Switch checked={state.action} onChange={handleChange} name="action" />
-                                    }
-                                    label="Action"
-                                />
-                                <FormControlLabel
-                                    control={
-                                        <Switch checked={state.animated} onChange={handleChange} name="animated" />
-                                    }
-                                    label="Animated"
-                                />
-                                <FormControlLabel
-                                    control={
-                                        <Switch checked={state.biographical} onChange={handleChange} name="biographical" />
-                                    }
-                                    label="Biographical"
-                                />
-                                <FormControlLabel
-                                    control={
-                                        <Switch checked={state.comedy} onChange={handleChange} name="comedy" />
-                                    }
-                                    label="Comedy"
-                                />
-                                <FormControlLabel
-                                    control={
-                                        <Switch checked={state.disaster} onChange={handleChange} name="disaster" />
-                                    }
-                                    label="Disaster"
-                                />
-                                <FormControlLabel
-                                    control={
-                                        <Switch checked={state.drama} onChange={handleChange} name="drama" />
-                                    }
-                                    label="Drama"
-                                />
-                                <FormControlLabel
-                                    control={
-                                        <Switch checked={state.epic} onChange={handleChange} name="epic" />
-                                    }
-                                    label="Epic"
-                                />
-                                <FormControlLabel
-                                    control={
-                                        <Switch checked={state.fantasy} onChange={handleChange} name="fantasy" />
-                                    }
-                                    label="Fantasy"
-                                />
-                                <FormControlLabel
-                                    control={
-                                        <Switch checked={state.musical} onChange={handleChange} name="musical" />
-                                    }
-                                    label="Musical"
-                                />
-                                <FormControlLabel
-                                    control={
-                                        <Switch checked={state.romantic} onChange={handleChange} name="romantic" />
-                                    }
-                                    label="Romantic"
-                                />
-                                <FormControlLabel
-                                    control={
-                                        <Switch checked={state.scienceFiction} onChange={handleChange} name="scienceFiction" />
-                                    }
-                                    label="Science Fiction"
-                                />
-                                <FormControlLabel
-                                    control={
-                                        <Switch checked={state.spaceOpera} onChange={handleChange} name="spaceOpera" />
-                                    }
-                                    label="Space Opera"
-                                />
-                                <FormControlLabel
-                                    control={
-                                        <Switch checked={state.superhero} onChange={handleChange} name="superhero" />
-                                    }
-                                    label="Superhero"
-                                /> */}
                             <FormHelperText>*Must select a genre</FormHelperText>
                         </FormGroup>
-                        {/* </FormControl> */}
                         {/* End Genre Selection */}
-
 
                     </CardContent>
                     <CardActions>

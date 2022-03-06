@@ -5,8 +5,8 @@ export default function* addMovie(action) {
     // add movie to DB
     try { 
         console.log('movie sent is:', action.payload)
-        const genres = yield axios.post(`/api/movie`, action.payload);
-        // yield put({ type: 'SET_GENRES', payload: genres.data });
+        yield axios.post(`/api/movie`, action.payload);
+        yield put({ type: 'FETCH_MOVIES' })
 
     } catch (err) {
         console.log('POST error is', err);
