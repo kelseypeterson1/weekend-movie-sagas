@@ -51,21 +51,33 @@ export default function MovieForm() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        for (let row of checkedGenres) {
-            dispatch({
-                type: "ADD_MOVIE",
-                payload:
-                {
-                    title: title,
-                    poster: poster,
-                    description: description,
-                    genre_id: row
-                }
-            })
+        // alert user if more than one genre was selected
+        if (checkedGenres.length > 1) {
+            alert('only one genre allowed')
+
+            // alert user if no genres were selected
+        } else if (checkedGenres.length > 1) {
+            alert('must select a genre')
         }
 
-        // routes to the movie list page
-        history.push('/');
+        // else post new movie to the database
+        else {
+            for (let row of checkedGenres) {
+                dispatch({
+                    type: "ADD_MOVIE",
+                    payload:
+                    {
+                        title: title,
+                        poster: poster,
+                        description: description,
+                        genre_id: row
+                    }
+                })
+            }
+
+            // routes to the movie list page
+            history.push('/');
+        }
     }
 
     return (

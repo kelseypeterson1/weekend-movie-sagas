@@ -11,6 +11,7 @@ export default function GenreSlider({ genre }) {
 
     // update selectedGenres reducer
     const handleChange = (event) => {
+        
         // toggle genre
         setChecked(event.target.checked);
 
