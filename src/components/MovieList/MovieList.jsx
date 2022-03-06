@@ -21,7 +21,7 @@ function MovieList() {
             <h1>The Great Movie Directory</h1>
             <Box
                 sx={{ padding: 5, marginLeft: 5, marginRight: 5 }}
-                style={{ background: '#c7dbe6' }}
+                style={{ background: '#536271' }}
             >
                 <Grid
                     container
