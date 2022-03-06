@@ -1,8 +1,7 @@
 import { put } from 'redux-saga/effects';
 import axios from 'axios';
 
-
-function* fetchGenres(action) {
+export default function* fetchGenres(action) {
     // get genres for specific movie
     try { 
         console.log('movie id sent is:', action.payload)
@@ -14,5 +13,3 @@ function* fetchGenres(action) {
     }
     
 }
-
-export default fetchGenres;

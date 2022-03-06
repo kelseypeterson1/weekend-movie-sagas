@@ -16,8 +16,15 @@ import genres from './reducers/genres.reducer'
 // Import sagas
 import fetchMovies from './sagas/fetchMovies.saga'
 import fetchGenres from './sagas/fetchGenres.saga'
+import addMovie from './sagas/addMovie.saga'
 // Import MUI
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+// Import components directory
+export {default as App} from './components/App/App'
+export {default as MovieDetails} from './components/MovieDetails/MovieDetails'
+export {default as MovieItem} from './components/MovieItem/MovieItem'
+export {default as MovieList} from './components/MovieList/MovieList'
+export {default as MovieForm} from './components/MovieForm/MovieForm'
 
 const theme = createMuiTheme({
     palette: {
@@ -33,7 +40,8 @@ const theme = createMuiTheme({
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchMovies);
-    yield takeEvery('FETCH_GENRES', fetchGenres)
+    yield takeEvery('FETCH_GENRES', fetchGenres);
+    yield takeEvery('ADD_MOVIE', addMovie);
 }
 
 // Create sagaMiddleware
