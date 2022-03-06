@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
@@ -7,7 +7,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { useState } from 'react';
 import Button from '@mui/material/Button';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import FormLabel from '@mui/material/FormLabel';
 import FormControl from '@mui/material/FormControl';
@@ -17,7 +17,8 @@ import FormHelperText from '@mui/material/FormHelperText';
 import Switch from '@mui/material/Switch';
 
 export default function MovieForm() {
-
+    
+    const genres = useSelector(store => store.genres);
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -41,6 +42,12 @@ export default function MovieForm() {
         spaceOpera: false,
         superhero: false,
     });
+
+
+    //retrieve movies from db on page load
+    useEffect(() => {
+        dispatch({ type: 'FETCH_ALL_GENRES' });
+    }, []);
 
     // submit button posts to DB
     const handleSubmit = (event) => {

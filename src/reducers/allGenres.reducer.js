@@ -1,7 +1,7 @@
-// Used to store movie genres for a specific movie
+// Used to store all movie genres
 const genres = (state = [], action) => {
     switch (action.type) {
-        case 'SET_GENRES':
+        case 'SET_ALL_GENRES':
             return action.payload;
         default:
             return state;
