@@ -86,65 +86,66 @@ export default function MovieForm() {
     }
 
     return (
-        <Box
-            sx={{
-                display: 'flex',
-                justifyContent: 'center'
-            }}
-        >
-            <Card sx={{ maxWidth: 345 }}>
-                <CardMedia
-                    component="img"
-                    image="https://m.media-amazon.com/images/I/71BPuv+iRbL._AC_SL1000_.jpg"
-                    alt="movie poster"
-                />
-                <CardContent>
-                    <TextField
-                        id="title"
-                        label="Title"
-                        variant="standard"
-                        value={title}
-                        onChange={(event) => setTitle(event.target.value)}
+        <form onSubmit={handleSubmit}>
+            <Box
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'center'
+                }}
+            >
+                <Card sx={{ maxWidth: 345 }}>
+                    <CardMedia
+                        component="img"
+                        image="https://m.media-amazon.com/images/I/71BPuv+iRbL._AC_SL1000_.jpg"
+                        alt="movie poster"
                     />
-                    <TextField
-                        id="poster"
-                        label="Poster"
-                        variant="standard"
-                        value={poster}
-                        onChange={(event) => setPoster(event.target.value)}
-                    />
-                    <TextField
-                        id="description"
-                        label="Description"
-                        multiline
-                        maxRows={4}
-                        variant="standard"
-                        value={description}
-                        onChange={(event) => setDescription(event.target.value)}
-                    />
+                    <CardContent>
+                        <TextField
+                            id="title"
+                            required
+                            label="Title"
+                            variant="standard"
+                            value={title}
+                            onChange={(event) => setTitle(event.target.value)}
+                        />
+                        <TextField
+                            id="poster"
+                            required
+                            label="Poster"
+                            variant="standard"
+                            value={poster}
+                            onChange={(event) => setPoster(event.target.value)}
+                        />
+                        <TextField
+                            id="description"
+                            required
+                            label="Description"
+                            multiline
+                            maxRows={4}
+                            variant="standard"
+                            value={description}
+                            onChange={(event) => setDescription(event.target.value)}
+                        />
 
-                    {/* Genre selection */}
-                    <FormGroup className={classes.formGroup}>
-                        {genres.map(genre => (
-                            <GenreSlider
-                                key={genre.id}
-                                genre={genre}
-                            />
-                        ))}
-                        <FormHelperText>*Must select a genre</FormHelperText>
-                    </FormGroup>
-                    {/* End Genre Selection */}
+                        {/* Genre selection */}
+                        <FormGroup className={classes.formGroup}>
+                            {genres.map(genre => (
+                                <GenreSlider
+                                    key={genre.id}
+                                    genre={genre}
+                                />
+                            ))}
+                            <FormHelperText>*Must select a genre</FormHelperText>
+                        </FormGroup>
+                        {/* End Genre Selection */}
 
-                </CardContent>
-                <CardActions>
-                    <form onSubmit={handleSubmit}>
+                    </CardContent>
+                    <CardActions>
                         <Button size="small" type="submit">Submit</Button>
-                    </form>
-                    <form onSubmit={handleBack}>
-                        <Button size="small" type="submit">Back</Button>
-                    </form>
-                </CardActions>
-            </Card>
-        </Box>
+                        <Button size="small" onClick={handleBack}>Back</Button>
+                    </CardActions>
+                </Card>
+            </Box>
+        </form>
     )
 }
