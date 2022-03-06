@@ -15,6 +15,7 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormHelperText from '@mui/material/FormHelperText';
 import Switch from '@mui/material/Switch';
+import { GenreSlider } from '../../index.js'
 
 export default function MovieForm() {
     
@@ -123,7 +124,8 @@ export default function MovieForm() {
                         {/* Genre selection */}
                         <FormControl component="fieldset" variant="standard">
                             <FormGroup>
-                                <FormControlLabel
+                                <GenreSlider />
+                                {/* <FormControlLabel
                                     control={
                                         <Switch checked={state.action} onChange={handleChange} name="action" />
                                     }
@@ -200,7 +202,7 @@ export default function MovieForm() {
                                         <Switch checked={state.superhero} onChange={handleChange} name="superhero" />
                                     }
                                     label="Superhero"
-                                />
+                                /> */}
                             </FormGroup>
                             <FormHelperText>*Must select one</FormHelperText>
                         </FormControl>
