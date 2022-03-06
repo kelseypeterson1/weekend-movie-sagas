@@ -25,7 +25,7 @@ export default function MovieForm() {
     const [title, setTitle] = useState('');
     const [poster, setPoster] = useState('');
     const [description, setDescription] = useState('');
-    // genre switches
+    // genre slider states
     const [state, setState] = React.useState({
         adventure: false,
         animated: false,
@@ -60,6 +60,8 @@ export default function MovieForm() {
         // routes to the movie list page
         history.push('/');
     }
+
+    console.log('state of slider is', state)
 
 
     // switches change use states
