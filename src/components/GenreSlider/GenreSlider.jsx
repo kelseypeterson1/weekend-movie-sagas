@@ -16,14 +16,12 @@ export default function GenreSlider({ genre }) {
 
         dispatch({
             type: 'SELECT_GENRE',
-            payload: [genre.name, checked]
+            payload: [genre.name, !checked]
         })
     }
 
-    console.log('genre is', genre)
     return (
         <>
-            {/* <FormControlLabel control={<Checkbox onChange={handleChange} defaultChecked />} label={genre.name} /> */}
             <FormControlLabel
                 control=
                     {<Checkbox
