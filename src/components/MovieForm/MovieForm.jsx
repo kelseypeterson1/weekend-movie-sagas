@@ -16,6 +16,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormHelperText from '@mui/material/FormHelperText';
 import Switch from '@mui/material/Switch';
 import { GenreSlider } from '../../index.js'
+import { makeStyles } from '@mui/styles';
 
 export default function MovieForm() {
 
@@ -43,6 +44,14 @@ export default function MovieForm() {
         spaceOpera: false,
         superhero: false,
     });
+
+    const useStyles = makeStyles({
+        formGroup: {
+            alignItems: 'center'
+          },
+    });
+
+    const classes = useStyles();
 
 
     //retrieve movies from db on page load
@@ -120,17 +129,17 @@ export default function MovieForm() {
                             onChange={(event) => setDescription(event.target.value)}
                         />
 
-
                         {/* Genre selection */}
-                                {genres.map(genre => (
-                                    <GenreSlider
-                                        key={genre.id}
-                                        genre={genre}
-                                    />
-                                ))}
-                        <FormControl component="fieldset" variant="standard">
-                            <FormGroup>
-                                {/* <FormControlLabel
+
+                        {/* <FormControl component="fieldset" variant="standard"> */}
+                        <FormGroup className={classes.formGroup}>
+                            {genres.map(genre => (
+                                <GenreSlider
+                                    key={genre.id}
+                                    genre={genre}
+                                />
+                            ))}
+                            {/* <FormControlLabel
                                     control={
                                         <Switch checked={state.action} onChange={handleChange} name="action" />
                                     }
@@ -208,9 +217,9 @@ export default function MovieForm() {
                                     }
                                     label="Superhero"
                                 /> */}
-                            </FormGroup>
-                            <FormHelperText>*Must select one</FormHelperText>
-                        </FormControl>
+                        </FormGroup>
+                        <FormHelperText>*Must select one</FormHelperText>
+                        {/* </FormControl> */}
                         {/* End Genre Selection */}
 
 

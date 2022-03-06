@@ -1,14 +1,10 @@
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+
 export default function GenreSlider({genre}) {
     return (
-        <p>
-            genre!
-        </p>
-
-        // <FormControlLabel
-        //     control={
-        //         <Switch checked={state.action} onChange={handleChange} name="action" />
-        //     }
-        //     label="Action"
-        // />
+        <>
+            <FormControlLabel control={<Checkbox defaultChecked />} label="Label" />
+        </>
     )
 }
