@@ -69,13 +69,13 @@ export default function MovieForm() {
                     title: title,
                     poster: poster,
                     description: description,
-                    genre_id: 1
+                    genre_id: row
                 }
             })
         }
 
         // routes to the movie list page
-        // history.push('/');
+        history.push('/');
     }
 
     return (

@@ -16,7 +16,7 @@ export default function GenreSlider({ genre }) {
 
         dispatch({
             type: 'SELECT_GENRE',
-            payload: [genre.name, !checked]
+            payload: [genre.id, !checked]
         })
     }
 
