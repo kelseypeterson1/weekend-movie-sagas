@@ -1,10 +1,12 @@
 # Weekend-Movie-Sagas
 
-## Description
+_Duration: Weekend Project_
 
+## Description
 This React project showcases a movie list with clickable movie posters, a movie details view, and a form for the user to add their own movie. The menu at the top can be used to navigate the site. This project utilizes redux and sagas to better organize the code.
 
-_Duration: Weekend Project_
+## Screen Recording
+![](walkthrough.gif)
 
 ## Usage
     - Clone files from github

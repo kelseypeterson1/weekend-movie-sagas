@@ -2,3 +2,8 @@
     display : flex;
     flex-wrap: wrap;
 }
+
+img {
+    width: 185;
+    height: 274;
+}
